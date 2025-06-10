@@ -63,7 +63,7 @@
     "publish": [{
       "provider": "github",
       "owner": "Kultup",
-      "repo": "https://github.com/Kultup/app.git"
+      "repo": "app"
     }]
   },
   "devDependencies": {

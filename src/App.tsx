@@ -1,24 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import Dashboard from './components/Dashboard';
+import AnalyticsPage from './components/AnalyticsPage';
 
 function App() {
+  const [page, setPage] = useState<'dashboard' | 'analytics'>('dashboard');
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>Система керування заявками</h1>
+        <nav style={{marginTop: 16}}>
+          <button onClick={() => setPage('dashboard')} style={{marginRight: 8}}>Заявки</button>
+          <button onClick={() => setPage('analytics')}>Аналітика</button>
+        </nav>
       </header>
+      <main>
+        {page === 'dashboard' ? <Dashboard /> : <AnalyticsPage />}
+      </main>
     </div>
   );
 }
